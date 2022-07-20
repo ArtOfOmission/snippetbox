@@ -1,0 +1,18 @@
+{{define "base"}}
+<!doctype html>
+<htmllang='en'>
+    <head>
+        <metacharset='utf-8'>
+        <title>{{template "title" .}} - Snippetbox</title>
+    </head>
+    <body>
+        <header>
+            <h1><ahref='/'>Snippetbox</a></h1>
+        </header>
+        <nav><ahref='/'>Home</a></nav>
+        <main>
+            {{template "main" .}}
+        </main>
+    </body>
+</html>
+{{end}}
