@@ -4,6 +4,9 @@
     <head>
         <metacharset='utf-8'>
         <title>{{template "title" .}} - Snippetbox</title>
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link rel='shortcut icon'href='/static/img/favicon.ico'type='image/x-icon'>
+        <link rel='stylesheet'href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700'>
     </head>
     <body>
         <header>
@@ -17,6 +20,9 @@
         </main>
         <!--Invoke the footer template-->
         {{template "footer" .}}
+
+        <script type="text/javascript" src="/static/js/main.js"></script>
+        
     </body>
 </html>
 {{end}}
