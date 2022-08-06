@@ -21,7 +21,8 @@ func main() {
 
 	cfg := new(Config)
 
-	addr := flag.String("addr", ":4000", "HTTP network address")
+	//addr := flag.String("addr", ":4000", "HTTP network address")
+
 	flag.StringVar(&cfg.Addr, "addr", ":4000", "HTTP network address")
 	flag.StringVar(&cfg.StaticDir, "static-dir", "./ui/static", "Path to static assets")
 
@@ -45,12 +46,12 @@ func main() {
 	mux.Handle("/static/", http.StripPrefix("/static", fileServer))
 
 	srv := &http.Server{
-		Addr:     *addr,
+		Addr:     cfg.Addr,
 		ErrorLog: errorLog,
 		Handler:  mux,
 	}
 
-	infoLog.Printf("Starting server on %s", *addr)
+	infoLog.Printf("Starting server on %s", cfg.Addr)
 	//err := http.ListenAndServe(cfg.Addr, mux)
 	err := srv.ListenAndServe()
 	errorLog.Fatal(err)
