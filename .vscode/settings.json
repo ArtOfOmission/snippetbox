@@ -1,0 +1,11 @@
+{
+    "editor.language.colorizedBracketPairs": [
+    
+    ],
+    "files.associations": {
+        "*.tmpl":"html"
+    },
+    "editor.language.brackets": [
+    
+    ]
+}
