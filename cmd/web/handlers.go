@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"strconv"
 
-	//"html/template"
-	"text/template"
+	"html/template"
+	//"text/template"
 
 	"github.com/ArtOfOmission/snippetbox/pkg/models"
 )
