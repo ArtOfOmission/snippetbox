@@ -7,4 +7,5 @@ go mod download
 
 --使用到的包
 go get github.com/bmizerany/pat
+go get github.com/golangcollege/sessions
 
