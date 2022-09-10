@@ -62,6 +62,7 @@ func main() {
 
 	session := sessions.New([]byte(*secret))
 	session.Lifetime = 12 * time.Hour
+	session.Secure = true // Set the Secure flag on our session cookies
 
 	app := &application{
 		errorLog:      errorLog,
@@ -79,7 +80,8 @@ func main() {
 
 	infoLog.Printf("Starting server on %s", cfg.Addr)
 	//err := http.ListenAndServe(cfg.Addr, mux)
-	err = srv.ListenAndServe()
+	//err = srv.ListenAndServe()
+	err = srv.ListenAndServeTLS("./tls/cert.pem", "./tls/key.pem")
 	errorLog.Fatal(err)
 }
 
