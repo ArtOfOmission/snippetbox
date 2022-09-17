@@ -199,16 +199,17 @@ func (app *application) loginUser(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		if errors.Is(err, models.ErrInvalidCredentials) {
 			form.Errors.Add("generic", "Email or Password is incorrect")
-			app.render(w, r, "login.page.tmpl", &templateData{
-				Form: form,
-			})
+			app.render(w, r, "login.page.tmpl", &templateData{Form: form})
 		} else {
 			app.serverError(w, err)
 		}
 		return
 	}
 
-	app.session.Put(r, "authenticatedUserId", id)
+	// app.infoLog.Print("authenticatedUserID")
+	// app.infoLog.Println(id)
+
+	app.session.Put(r, "authenticatedUserID", id)
 	http.Redirect(w, r, "/snippet/create", http.StatusSeeOther)
 }
 
