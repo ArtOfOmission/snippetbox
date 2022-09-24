@@ -20,7 +20,7 @@ func (app *application) routes() http.Handler {
 	// fileServer := http.FileServer(http.Dir("./ui/static/"))
 	// mux.Handle("/static/", http.StripPrefix("/static", fileServer))
 
-	dynamicMiddleware := alice.New(app.session.Enable, noSurf)
+	dynamicMiddleware := alice.New(app.session.Enable, noSurf, app.authenticate)
 
 	mux := pat.New()
 	mux.Get("/", dynamicMiddleware.ThenFunc(app.home))
